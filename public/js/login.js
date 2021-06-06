@@ -31,11 +31,11 @@ function handleSubmit(e) {
   if (vLogin && vPassword) {
     if (validLengthInput(login, 3)) {
       modal(false, {
-        message: `Campo nome precisa ter mais de 3 caracteres`,
+        message: "Campo nome precisa ter mais de 3 caracteres",
       });
     } else if (validLengthInput(password, 8)) {
       modal(false, {
-        message: `Campo senha precisa ter mais de 8 caracteres`,
+        message: "Campo senha precisa ter mais de 8 caracteres",
       });
     } else {
       getApi(
@@ -46,7 +46,7 @@ function handleSubmit(e) {
             loginAcess(response);
           } else {
             modal(false, {
-              message: `Ops, houve um problema, tente novamente!`,
+              message: "Usuário não encontrado!",
             });
           }
         }

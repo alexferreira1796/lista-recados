@@ -36,15 +36,15 @@ function handleSubmit(e) {
   if (vLogin && vPassword && vRepeat) {
     if (validLengthInput(login, 3)) {
       modal(false, {
-        message: `Campo nome precisa ter mais de 3 caracteres`,
+        message: "Campo nome precisa ter mais de 3 caracteres",
       });
     } else if (validLengthInput(password, 8)) {
       modal(false, {
-        message: `Campo senha precisa ter mais de 8 caracteres`,
+        message: "Campo senha precisa ter mais de 8 caracteres",
       });
     } else if (validLengthInput(password, 8)) {
       modal(false, {
-        message: `Campo repetir senha precisa ter mais de 8 caracteres`,
+        message: "Campo repetir senha precisa ter mais de 8 caracteres",
       });
     } else {
       if (comparePass(password, repetPass)) {
