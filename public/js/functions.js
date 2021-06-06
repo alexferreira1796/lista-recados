@@ -5,7 +5,7 @@ function getStorage() {
   if (getStorage && path.indexOf("/lista") <= -1) {
     window.location.href = "lista.html";
   } else if (!getStorage && path.indexOf("/lista") > -1) {
-    window.location.href = "index.html";
+    window.location.href = "/";
   }
 }
 // Função para habilitar e desabilitar campos input recados
