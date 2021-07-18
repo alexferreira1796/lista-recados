@@ -9,14 +9,14 @@ const formRegister = document.querySelector(".form-register");
 function register(res) {
   if (res && !res.success) {
     postApi(
-      "/user/add",
+      "/users",
       {
         name: login.value.toLowerCase(),
         password: password.value,
         repeatPass: repetPass.value,
       },
       function (response) {
-        if (response.success) {
+        if (response) {
           messageSuccess("create");
           window.location.href = "index.html";
         }
@@ -49,7 +49,7 @@ function handleSubmit(e) {
     } else {
       if (comparePass(password, repetPass)) {
         getApi(
-          "/user/name/" + login.value.toLowerCase(),
+          "/users/name/" + login.value.toLowerCase(),
           null,
           function (response) {
             register(response);

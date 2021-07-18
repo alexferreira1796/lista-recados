@@ -1,5 +1,5 @@
 const api = axios.create({
-  baseURL: "https://api-recados.herokuapp.com",
+  baseURL: "https://api-listaderecados-em-node.herokuapp.com",
 });
 
 function getApi(path, params, callback) {

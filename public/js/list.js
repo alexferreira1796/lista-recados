@@ -26,7 +26,7 @@ function handleSubmit(e) {
 
     if (!update) {
       if (key) {
-        postApi(`/message/add/${key}`, data, function (res) {
+        postApi(`/messages/${key}`, data, function (res) {
           if (res && res.success) {
             getMessages();
           } else {
@@ -47,8 +47,9 @@ function handleSubmit(e) {
 // Buscar todas as mensagens
 function getMessages() {
   loadingElement(true);
+
   if (key) {
-    getApi(`/messages/${key}`, null, function (res) {
+    getApi(`/messages/users/${key}`, null, function (res) {
       if (res && res.success) {
         listMessages(res);
       } else {
@@ -95,7 +96,7 @@ function fillMessages(data) {
 function updateRegister(data) {
   const id = document.querySelector("#key").value;
   if (id != "") {
-    putApi(`/user/${key}/message/${id}`, data, function (res) {
+    putApi(`/messages/${id}`, data, function (res) {
       if (res && res.success) {
         getMessages();
       } else {
@@ -115,7 +116,7 @@ function editRegister() {
     description.placeholder = "Carregando...";
     details.placeholder = "Carregando...";
     if (key) {
-      getApi(`/user/${key}/message/${id}`, null, function (res) {
+      getApi(`/messages/${id}`, null, function (res) {
         if (res && res.success) {
           fillMessages(res);
         } else {
@@ -138,7 +139,7 @@ function deleteRegister() {
       const id = element.target.dataset.id;
       const el = document.getElementById(`${id}`);
       if (el) {
-        deleteApi(`/user/${key}/message/${id}`, function (res) {
+        deleteApi(`/messages/${id}`, function (res) {
           if (res && res.success) {
             el.remove();
           }

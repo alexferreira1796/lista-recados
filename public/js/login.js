@@ -15,11 +15,11 @@ function loginAcess(res) {
   if (res && !res.success) {
     modal(false, { message: "Usuário não encontrado!" });
   } else {
-    if (res.data.password !== password.value) {
+    if (res.data[0].password !== password.value) {
       modal(false, { message: "Ops, verifique sua senha!" });
       return;
     }
-    window.localStorage.setItem("@growdev-user", res.data.id);
+    window.localStorage.setItem("@growdev-user", res.data[0].id);
     window.location.href = "lista.html";
   }
 }
@@ -39,7 +39,7 @@ function handleSubmit(e) {
       });
     } else {
       getApi(
-        "/user/name/" + login.value.toLowerCase(),
+        "/users/name/" + login.value.toLowerCase(),
         null,
         function (response) {
           if (response && response.success) {
